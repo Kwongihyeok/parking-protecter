@@ -355,7 +355,7 @@ if(label == 'car'):
         info = plate_infos[longest_idx]
         chars = plate_chars[longest_idx]
 
-        print(chars)
+        #print(chars)
 
         img_out = img_ori.copy()
 
@@ -380,14 +380,14 @@ if(label == 'car'):
         with conn:
             with conn.cursor() as cur:
                 cur.execute(sql, (chars))
-                result = cur.fetchall()
-                print(result)
+                result = cur.fetchone()
+                #print(result)
                 for data in result:
-                    print(data)
-                #if (result == chars):
-                #    print("asd")
-                #else:
-                 #   print(result)
+                 #   print(data)
+                    if (data == chars):
+                        print("1")
+                    else:
+                        print("0")
 
 else:
     print("aaa")
